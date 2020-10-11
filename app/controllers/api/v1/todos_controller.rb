@@ -1,5 +1,5 @@
 class Api::V1::TodosController < ApplicationController
-  before_action :set_todos, only: [:show, :update, :destroy]
+  before_action :set_todo, only: [:show, :update, :destroy]
   skip_before_action :verify_authenticity_token
   
   def index
@@ -32,7 +32,7 @@ class Api::V1::TodosController < ApplicationController
   private
 
   def set_todo
-    @todo = todo.find(params[:id])
+    @todo = Todo.find(params[:id])
   end
 
   def todo_params
