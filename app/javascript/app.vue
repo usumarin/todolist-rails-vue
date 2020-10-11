@@ -1,22 +1,22 @@
 <template>
-  <div id="app">
-    <p>{{ message }}</p>
-  </div>
+  <v-app id="app">
+    <Header></Header>
+    <Todo></Todo>
+  </v-app>
 </template>
 
 <script>
+import axios from 'axios';
+import Header from './components/header.vue';
+import Todo from './components/todo.vue';
+
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
+  components: {
+    Header,
+    Todo
     }
-  }
 }
 </script>
 
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
+<style>
 </style>
