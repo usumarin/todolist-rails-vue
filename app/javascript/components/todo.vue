@@ -19,6 +19,7 @@
           </v-col>
         </v-layout>
       </v-card>
+      <v-pagination v-model="currentPage" :length="totalPages" @input="fetchTodos"></v-pagination>
   </v-col>
   <v-col md=5>
     <v-form>
@@ -49,6 +50,7 @@ import axios from 'axios';
 export default {
   data: function() {
     return{
+      // todolist
       todos: [],
       index: [],
       selectTodo: {},
@@ -56,6 +58,10 @@ export default {
       todoTitle: '',
       todoBody: '',
       isCompleted: false,
+      //paginate
+      currentPage: 1,
+      itemsPerPage: 10,
+      totalPages: null,
     }
   },
   created() {
@@ -64,9 +70,12 @@ export default {
   methods: {
     fetchTodos() {
       axios
-        .get('api/v1/todos.json')
+      const url = `/api/v1/todos?page=${this.currentPage}?per=${this.itemsPerPage}`
+      axios
+        .get(url)
         .then(response => {
-          this.todos = response.data;
+          this.todos = response.data.todos;
+          this.totalPages = response.data.total_pages;
         })
       },
     createTodo: function() {

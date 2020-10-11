@@ -3,8 +3,16 @@ class Api::V1::TodosController < ApplicationController
   skip_before_action :verify_authenticity_token
   
   def index
-    todos = Todo.all.order(updated_at: "DESC")
-    render json: todos
+    # todos = Todo.all.order(updated_at: "DESC")
+    page = params[:page] || 1
+    per = params[:per] || 5
+    todos = Todo.page(page).per(per)
+    total_pages = todos.total_pages
+    response = {
+      todos: todos.order(updated_at: "DESC"),
+      total_pages: total_pages
+    }
+    render json: response
   end
 
   def create
