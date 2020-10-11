@@ -7,7 +7,7 @@
         <v-card-text>{{ todo.body }}</v-card-text>
         <v-layout column>
           <v-col>
-            <v-checkbox v-model="todo.is_completed" label="is_completed?" class="float-right"></v-checkbox>
+            <v-checkbox v-model="todo.is_completed" label="完了済み?" class="float-right"></v-checkbox>
           </v-col>
           <v-col class="text-right">
             <v-btn icon @click="editTodo(todo)">
@@ -23,11 +23,11 @@
   </v-col>
   <v-col md=5>
     <v-form>
-      <v-text-field v-model="todoTitle" label="title"></v-text-field>
-      <v-textarea v-model="todoBody" label="body"></v-textarea>
+      <v-text-field v-model="todoTitle" label="タイトル"></v-text-field>
+      <v-textarea v-model="todoBody" label="詳細"></v-textarea>
       <v-layout column>
         <v-col>
-          <v-checkbox v-model="isCompleted" label="is_completed?" class="float-right"></v-checkbox>
+          <v-checkbox v-model="isCompleted" label="完了済み?" class="float-right"></v-checkbox>
         </v-col>
         <v-col class="text-right">
           <div v-if="editAction">
