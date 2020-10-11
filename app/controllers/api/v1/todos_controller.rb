@@ -3,7 +3,7 @@ class Api::V1::TodosController < ApplicationController
   skip_before_action :verify_authenticity_token
   
   def index
-    todos = Todo.select(:id, :title, :body, :is_completed)
+    todos = Todo.all.order(updated_at: "DESC")
     render json: todos
   end
 

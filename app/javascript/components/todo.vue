@@ -73,7 +73,7 @@ export default {
       if(this.todoTitle == '') return;
       
       axios.post('api/v1/todos', { todo: { title: this.todoTitle, body: this.todoBody, is_completed: this.isCompleted }}).then((response) => {
-        this.todos.push({
+        this.todos.unshift({
           title: this.todoTitle,
           body: this.todoBody,
           is_completed: this.isCompleted
