@@ -57,7 +57,6 @@ export default {
   },
   methods: {
     fetchTodos() {
-      axios
       const url = `/api/v1/todos?page=${this.currentPage}?per=${this.itemsPerPage}`
       axios
         .get(url)
