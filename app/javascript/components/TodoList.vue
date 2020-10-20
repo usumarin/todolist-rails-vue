@@ -73,6 +73,7 @@ export default {
           body: todoBody,
           is_completed: isCompleted
         })
+      this.fetchTodos()
       }, (error) => {
         console.log(error, response);
       });
@@ -104,6 +105,7 @@ export default {
         this.todoTitle= '';
         this.todoBody = '';
         this.Completed = false;
+        this.fetchTodos()
       }, (error) => {
         console.log(error, response);
       });
