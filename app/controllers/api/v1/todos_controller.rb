@@ -37,6 +37,20 @@ class Api::V1::TodosController < ApplicationController
     end
   end
 
+  def search
+    keyword = params[:keyword]
+    is_completed = params[:is_completed]
+    page = params[:page] || 1
+    per = params[:per] || 5
+    todos = Todo.where('title LIKE?', "%#{keyword}%").or(Todo.where('body LIKE?', "%#{keyword}%")).where(is_completed: is_completed).page(page).per(per)
+    total_pages = todos.total_pages
+    response = {
+      todos: todos.order(updated_at: "DESC"),
+      total_pages: total_pages
+    }
+    render json: response
+  end
+
   private
 
   def set_todo

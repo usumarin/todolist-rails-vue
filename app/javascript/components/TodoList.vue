@@ -2,6 +2,9 @@
   <v-container>
   <v-row justify="end">
   <v-col md=6>
+  <v-text-field v-model="query.keyword" label="keyword"></v-text-field>
+  <v-checkbox v-model="query.is_completed" label="完了済み?"></v-checkbox>
+  <v-btn color="success" @click="search">検索</v-btn>
   <v-card v-for="todo in todos" :key="todo.id" max-width=500 max-height=250 class="my-6">
     <v-card-title>{{ todo.title }}</v-card-title>
     <v-card-text>{{ todo.body }}</v-card-text>
@@ -30,6 +33,7 @@
 
 <script>
 import axios from 'axios';
+import Qs from 'qs';
 import TodoListForm from './TodoListForm.vue';
 
 export default {
@@ -50,6 +54,11 @@ export default {
       currentPage: 1,
       itemsPerPage: 10,
       totalPages: null,
+      //query
+      query: {
+        keyword: '',
+        is_completed: false
+      }
     }
   },
   created() {
@@ -108,7 +117,23 @@ export default {
       }, (error) => {
         console.log(error, response);
       });
-  }
+      
+    },
+    search: function(){
+        axios.get('/api/v1/todos/search',{
+          params: {
+            keyword: this.query.keyword,
+            is_completed: this.query.is_completed
+          }
+        })
+        .then((response) => {
+          console.log(response);
+          this.todos = response.data.todos;
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+      }
   },
 }
 </script>
