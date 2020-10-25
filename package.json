@@ -14,6 +14,13 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "eslint": "^7.12.0",
+    "eslint-config-prettier": "^6.14.0",
+    "eslint-plugin-vue": "^7.1.0",
+    "prettier": "^2.1.2",
     "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "fmt": "prettier --write 'app/javascript/**/*.{js,json,md,html,vue}'"
   }
 }
