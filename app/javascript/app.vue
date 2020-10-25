@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import Header from "./components/header.vue";
 import TodoList from "./components/TodoList.vue";
 
