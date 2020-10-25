@@ -6,20 +6,20 @@
 </template>
 
 <script>
-import axios from 'axios';
-import Header from './components/header.vue';
-import Todolist from './components/TodoList.vue';
+import axios from "axios";
+import Header from "./components/header.vue";
+import Todolist from "./components/TodoList.vue";
 
 export default {
   components: {
     Header,
-    Todolist
-    }
-}
+    Todolist,
+  },
+};
 </script>
 
 <style>
 #app {
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
 }
 </style>
