@@ -5,7 +5,9 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:vue/recommended"
+        "plugin:prettier/recommended",
+        "plugin:vue/recommended",
+        "prettier/vue"
     ],
     "parserOptions": {
         "ecmaVersion": 12,
@@ -15,7 +17,5 @@
         "vue"
     ],
     "rules": {
-        "no-unused-vars": "off",
-        "no-undef": "off"
     }
 }
