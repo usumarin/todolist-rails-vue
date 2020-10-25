@@ -1,7 +1,7 @@
 <template>
   <v-app id="app">
-    <Header></Header>
-    <Todolist></Todolist>
+    <Header />
+    <Todolist />
   </v-app>
 </template>
 
