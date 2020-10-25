@@ -53,7 +53,6 @@
 
 <script>
 import axios from "axios";
-import Qs from "qs";
 import TodoListForm from "./TodoListForm.vue";
 
 export default {
