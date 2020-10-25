@@ -1,19 +1,19 @@
 <template>
   <v-app id="app">
     <Header />
-    <Todolist />
+    <TodoList />
   </v-app>
 </template>
 
 <script>
 import axios from "axios";
 import Header from "./components/header.vue";
-import Todolist from "./components/TodoList.vue";
+import TodoList from "./components/TodoList.vue";
 
 export default {
   components: {
     Header,
-    Todolist,
+    TodoList,
   },
 };
 </script>
